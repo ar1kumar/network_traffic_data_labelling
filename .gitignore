@@ -1,0 +1,4 @@
+bitflow_converter/
+bitflow_data/
+*.pcap
+*.out
