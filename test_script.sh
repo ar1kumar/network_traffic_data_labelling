@@ -58,9 +58,6 @@ echo "$(timestamp) - Start Attack #1{custom attack label}"
 ./malicious_module.sh &
 ./benign_module.sh
 
-#2 Arachni web testing
-# /root/Documents/arachni-security-test/bin/arachni "$WP_APP_URL"
-
 #Stop the tcpdump process
 echo "$(timestamp) - Stop TCPdump process"
 kill $pid
