@@ -16,6 +16,7 @@ exec 1>log-test-$C_DATE.out 2>&1
 #Variable definitions
 WP_APP_URL="http://10.0.2.6/"
 WP_ADMIN_URL="http://10.0.2.6/admin/"
+WP_IP="10.0.2.6"
 
 #Command line argument for naming the files
 echo "command line arguments -"
@@ -55,7 +56,7 @@ echo "$(timestamp) - Start Attack #1{custom attack label}"
 # msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS 10.0.2.6; run; exit;"
 
 #Start malicious & benign traffic simultaneously
-./malicious_module.sh &
+./malicious_module.sh $WP_IP &
 ./benign_module.sh
 
 #Stop the tcpdump process
