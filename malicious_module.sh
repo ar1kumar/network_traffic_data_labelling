@@ -1,6 +1,10 @@
 #!/bin/bash
-echo "test"
-echo "can you log me?"
+#Reusuable timestamp function
+timestamp(){
+  date +"%Y-%m-%d %T"
+}
+
+echo "$(timestamp) - Malicious script launched"
 
 #Start attacks
 echo "$(timestamp) - Start Attack #1{attack_name_placeholder}"

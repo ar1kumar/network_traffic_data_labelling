@@ -11,7 +11,7 @@ C_DATE=$(date +"%d-%m-%Y")
 #logging outputs to a file
 exec 3>&1 4>&2
 trap 'exec 2>&4 1>&3' 0 1 2 3
-exec 1>log-$C_DATE.out 2>&1
+exec 1>log-test-$C_DATE.out 2>&1
 
 #Variable definitions
 WP_APP_URL="http://10.0.2.6/"
@@ -53,7 +53,10 @@ pid=$!
 #1 Get directory listing
 echo "$(timestamp) - Start Attack #1{custom attack label}"
 # msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS 10.0.2.6; run; exit;"
-./malicious_module.sh
+
+#Start malicious & benign traffic simultaneously
+./malicious_module.sh &
+./benign_module.sh
 
 #2 Arachni web testing
 # /root/Documents/arachni-security-test/bin/arachni "$WP_APP_URL"
