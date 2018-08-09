@@ -52,11 +52,10 @@ pid=$!
 #List of attacks
 #1 Get directory listing
 echo "$(timestamp) - Start Attack #1{custom attack label}"
-msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS 10.0.2.6; run; exit;"
+# msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS 10.0.2.6; run; exit;"
 
 #2 Arachni web testing
-echo "$(timestamp) - Arachni web security testing started"
-/root/Documents/arachni-security-test/bin/arachni "$WP_APP_URL"
+# /root/Documents/arachni-security-test/bin/arachni "$WP_APP_URL"
 
 #Stop the tcpdump process
 echo "$(timestamp) - Stop TCPdump process"
@@ -79,5 +78,4 @@ cd ../../
 
 
 #Adding custom label to the csv file
-#awk '$84="{TRAFFIC_LABEL}"' FS=, OFS=, bitflow_data/$FILE_NAME.pcap_Flow.csv > bitflow_data/$FILE_NAME.labelled_pcap_flow.csv
-awk -v label="$TRAFFIC_LABEL" '$84=label' FS=, OFS=, bitflow_data/$FILE_NAME.pcap_Flow.csv > bitflow_data/$FILE_NAME.labelled.pcap_Flow.csv
+# awk -v label="$TRAFFIC_LABEL" '$84=label' FS=, OFS=, bitflow_data/$FILE_NAME.pcap_Flow.csv > bitflow_data/$FILE_NAME.labelled.pcap_Flow.csv
