@@ -53,6 +53,7 @@ pid=$!
 #1 Get directory listing
 echo "$(timestamp) - Start Attack #1{custom attack label}"
 # msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS 10.0.2.6; run; exit;"
+./malicious_module.sh
 
 #2 Arachni web testing
 # /root/Documents/arachni-security-test/bin/arachni "$WP_APP_URL"
