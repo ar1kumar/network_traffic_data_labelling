@@ -1,6 +1,12 @@
+#Folders
+
 bitflow_converter/
 bitflow_data/
+2018-*/
+
+#File extensions
+
 *.pcap
 *.out
 *.log
-2018-*/
+*.csv
