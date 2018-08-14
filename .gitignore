@@ -10,5 +10,6 @@ bitflow_data/
 *.out
 *.log
 *.csv
+*.afr
 
 #Custom exclusion
