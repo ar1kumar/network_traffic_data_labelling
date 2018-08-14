@@ -48,4 +48,4 @@ echo "$(timestamp) - Convert pcap to csv"
 cd ../../
 
 #Adding custom label to the csv file
-awk -v label_B="Benign" -v label_M="Malicious" -v malicious_ip="10.0.2.4" -v benign_ip="10.0.2.7" '{ if ($2 == benign_ip && $3 == benign_ip) {$84=label_B}; else{$84=label_M}; print}' FS=, OFS=, bitflow_data/$FILE_NAME.pcap_Flow.csv > bitflow_data/$FILE_NAME.labelled.pcap_Flow.csv
+awk -v label_B="Benign" -v label_M="Malicious" -v malicious_ip="10.0.2.4" -v benign_ip="10.0.2.7" '{ if ($2 == benign_ip || $3 == benign_ip) {$84=label_B} else{$84=label_M}; print}' FS=, OFS=, bitflow_data/$FILE_NAME.pcap_Flow.csv > bitflow_data/$FILE_NAME.labelled.pcap_Flow.csv

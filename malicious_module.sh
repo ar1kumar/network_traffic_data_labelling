@@ -27,7 +27,7 @@ msfconsole -q -x "use auxiliary/scanner/http/ssl; set RHOSTS $WP_IP; run; exit;"
 msfconsole -q -x "use auxiliary/scanner/http/http_login; set AUTH_URI /xampp/; set RHOSTS $WP_IP; set VERBOSE false; run; exit;"
 
 #Dir scanner
-msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS $WP_IP; run; exit;"
+#msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS $WP_IP; run; exit;"
 
 #dir_webdav_unicode_bypass
 #attempts to bypass the authentication using the WebDAV IIS6 Unicode vulnerability.
