@@ -18,21 +18,32 @@ timestamp(){
 C_DATE=$(date +"%d-%m-%Y")
 
 #logging outputs to a file
-exec 3>&1 4>&2
-trap 'exec 2>&4 1>&3' 0 1 2 3
-exec 1>log-target-machine-WP-$C_DATE.out 2>&1
+#exec 3>&1 4>&2
+#trap 'exec 2>&4 1>&3' 0 1 2 3
+#exec 1>log-target-machine-WP-$C_DATE.out 2>&1
 
 #Variable definitions
 FILE_NAME="$C_DATE.experiment"
 
-#Start tcpdump
-echo "$(timestamp) - Start tcp dump"
-tcpdump -i enp0s3 -w $FILE_NAME.pcap &
-pid=$!
+#Command line argument for naming the files
+echo "command line arguments -"
+echo $1
+echo "----------------------"
+if [ $# -eq 0 ]; then
+  FILE_NAME="$C_DATE.experiment"
+else
+  FILE_NAME=$1
+fi
 
+#Start tcpdump
+#echo "$(timestamp) - Start tcp dump"
+#tcpdump -i enp0s3 -w $FILE_NAME.pcap &
+#pid=$!
+
+#wait for network activity to end
 
 #Stop tcpdump process
-kill $pid
+#kill $pid
 
 #Convert the captured network traffic(pcap) data to bitflow information(csv)
 
