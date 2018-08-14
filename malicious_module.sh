@@ -26,9 +26,6 @@ msfconsole -q -x "use auxiliary/scanner/http/ssl; set RHOSTS $WP_IP; run; exit;"
 #To configure the module, set the AUTH_URI setting to the path of the page requesting authentication.
 msfconsole -q -x "use auxiliary/scanner/http/http_login; set AUTH_URI /xampp/; set RHOSTS $WP_IP; set VERBOSE false; run; exit;"
 
-#Directory listing
-msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS $WP_IP; run; exit;"
-
 #Dir scanner
 msfconsole -q -x "use auxiliary/scanner/http/dir_scanner; set RHOSTS $WP_IP; run; exit;"
 
