@@ -9,3 +9,5 @@ All the required tools and services can be installed via util.sh
 
 After installation create a VM architecture as mentioned in the experiments section of the documentation and deploy the scripts in the VM systems.
 
+Alternatively this project can also be bundled as a Docker image for quick deployments.
+
